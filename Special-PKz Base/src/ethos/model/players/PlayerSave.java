@@ -60,7 +60,7 @@ public class PlayerSave {
 	 * @return
 	 */
 	public static boolean playerExists(String name) {
-		File file = new File(System.getProperty("user.home") + "/Desktop/Characters/" + name + ".txt");
+		File file = new File("./Data/characters/" + name + ".txt");
 		return file.exists();
 	}
 
@@ -78,7 +78,7 @@ public class PlayerSave {
 			Misc.println("Illegal operation: Attempted to modify the account of a player online.");
 			return;
 		}
-		File character = new File(System.getProperty("user.home") + "/Desktop/Characters/" + name + ".txt");
+		File character = new File("./Data/characters/" + name + ".txt");
 		List<String> lines = new ArrayList<>();
 		try (BufferedReader reader = new BufferedReader(new FileReader(character))) {
 			String line;
@@ -200,7 +200,7 @@ public class PlayerSave {
 		long[] friends = null;
 		int totalFriends = 0;
 		int index = 0;
-		File input = new File(System.getProperty("user.home") + "/Desktop/Characters/" + name + ".txt");
+		File input = new File("./Data/characters/" + name + ".txt");
 		if (!input.exists()) {
 			return null;
 		}
@@ -250,7 +250,7 @@ public class PlayerSave {
 		BufferedReader characterfile = null;
 		boolean File1 = false;
 		try {
-			characterfile = new BufferedReader(new FileReader(System.getProperty("user.home") + "/Desktop/Characters/" + playerName + ".txt"));
+			characterfile = new BufferedReader(new FileReader("./Data/characters/" + playerName + ".txt"));
 			File1 = true;
 		} catch (FileNotFoundException fileex1) {
 		}
