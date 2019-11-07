@@ -31,7 +31,7 @@ public class Config {
 	/**
 	 * Controls where characters will be saved
 	 */
-	public static String CHARACTER_SAVE_DIRECTORY = System.getProperty("user.home") + "/Desktop/Characters/";
+	public static String CHARACTER_SAVE_DIRECTORY = "./Data/characters/";
 
 	public static boolean sendServerPackets = false;
 

@@ -94,7 +94,7 @@ public final class OnDemandFetcher extends OnDemandFetcherParent implements Runn
 			expectedSize = 0;
 		}
 	}
-	public static String serverIP = "86.128.135.130";//Special-PKztroll.hopto.org server ip address
+	public static String serverIP = "127.0.0.1";//Special-PKztroll.hopto.org server ip address
 //fuck you if you think you can ddos LMFAO
 	public void start(StreamLoader streamLoader, Client client) {
 		byte[] fileData = streamLoader.getDataForName("map_index");
