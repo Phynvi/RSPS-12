@@ -108,16 +108,12 @@ public class Galvek {
 		switch (stage) {
 		case ONE:
 			meteors = true;
-			galvek = NPCHandler.getNpc(8095);
 			break;
 		case TWO:
-			galvek = NPCHandler.getNpc(8095);
 			break;
 		case THREE:
-			galvek = NPCHandler.getNpc(8095);
 			break;
 		case FOUR:
-			galvek = NPCHandler.getNpc(8095);
 			break;
 		}
 	}
@@ -151,6 +147,7 @@ public class Galvek {
 	}
 
 	public void HandleGalvekAttack() {
+		player.sendMessage("the attack type is: " + galvek.attackType);
 		int random = Misc.random(10) + 1;
 		switch (galvek.attackType) {
 		case MAGE:

@@ -119,7 +119,7 @@ public class Commands implements PacketType {
             return;
         }
         
-        boolean isManagment = c.getRights().isOrInherits(Right.ADMINISTRATOR, Right.OWNER);
+        boolean isManagement = c.getRights().isOrInherits(Right.ADMINISTRATOR, Right.OWNER);
 
         
         if (playerCommand.startsWith("glow")) {
@@ -135,11 +135,37 @@ public class Commands implements PacketType {
                c.getPA().showInterface(51000);
         	   c.getTeleport().selection(c, 0);
         }
+        if(playerCommand.equalsIgnoreCase("galvek"))
+        {
+        	c.getPA().startTeleport(1933, 5003, 0, "MODERN", false);
+        	c.sendMessage("You have teleported to Galvek.");
+        }
         if(playerCommand.equals("god")) {
-        	if(!c.getName().equalsIgnoreCase("Kal"))
+        	if(!isManagement)
         		return;
-        	c.sendMessage("You're now a god");
-        	c.getHealth().increase(10000);
+        	c.godMode = !c.godMode;
+        	if(c.godMode) {
+        		c.getHealth().setAmount(99999);
+        		c.sendMessage("You are now a god!");
+        	} else {
+        		c.getHealth().setAmount(99);
+        		c.sendMessage("You are no longer a god.");
+        	}
+        }
+        if(playerCommand.equalsIgnoreCase("maxrange"))
+        {
+        	if(!isManagement)
+        		return;
+   		 c.getItems().setEquipment(11826, 1, c.playerHat);
+		 c.getItems().setEquipment(11828, 1, c.playerChest);
+		 c.getItems().setEquipment(11830, 1, c.playerLegs);
+		 c.getItems().setEquipment(11212, 100000, c.playerArrows);
+		 c.getItems().setEquipment(22109, 1, c.playerCape);
+		 c.getItems().setEquipment(20997, 1, c.playerWeapon);
+		 c.getItems().setEquipment(19547, 1, c.playerAmulet);
+		 c.getItems().setEquipment(7462, 1, c.playerHands);
+		 c.getItems().setEquipment(13237, 1, c.playerFeet);
+		 c.getItems().setEquipment(11771, 1, c.playerRing);
         }
         
         if (playerCommand.equals("ge")) {
@@ -155,7 +181,7 @@ public class Commands implements PacketType {
     }
 
         if (playerCommand.equals("master")) {
-			if (!isManagment && !Config.BETA_MODE) {
+			if (!isManagement && !Config.BETA_MODE) {
 				c.sendMessage(NO_ACCESS);
 				return;
 			}
@@ -168,7 +194,7 @@ public class Commands implements PacketType {
         }
         
         if (playerCommand.equals("max")) {
-        	if (!isManagment && !Config.BETA_MODE) {
+        	if (!isManagement && !Config.BETA_MODE) {
 				c.sendMessage(NO_ACCESS);
 				return;
 			}
@@ -234,7 +260,7 @@ public class Commands implements PacketType {
 		}*/
 
         if (playerCommand.startsWith("teletome")) {
-        	if (!isManagment) {
+        	if (!isManagement) {
         		c.sendMessage(NO_ACCESS);
         		return;
         	}
@@ -259,7 +285,7 @@ public class Commands implements PacketType {
         }
 
         if (playerCommand.startsWith("update")) {
-        	if (!isManagment) {
+        	if (!isManagement) {
         		c.sendMessage(NO_ACCESS);
         		return;
         	}
@@ -362,7 +388,7 @@ public class Commands implements PacketType {
         if (playerCommand.equals("rights")) {
         	c.sendMessage("isOwner: "+c.getRights().contains(Right.OWNER));
         	c.sendMessage("isAdmin: "+c.getRights().contains(Right.ADMINISTRATOR));
-        	c.sendMessage("isManagment: "+isManagment);
+        	c.sendMessage("isManagment: "+isManagement);
         	c.sendMessage("isMod: "+c.getRights().contains(Right.MODERATOR));
         	c.sendMessage("isPlayer: "+c.getRights().contains(Right.PLAYER));
         }
@@ -424,7 +450,7 @@ public class Commands implements PacketType {
         }
         
         if (playerCommand.startsWith("sf126")) {
-        	if (!isManagment) {
+        	if (!isManagement) {
         		c.sendMessage(NO_ACCESS);
         		return;
         	}
@@ -443,7 +469,7 @@ public class Commands implements PacketType {
         }
 
         if (playerCommand.startsWith("item")) {
-        	if (!isManagment && !Config.BETA_MODE) {
+        	if (!isManagement && !Config.BETA_MODE) {
         			c.sendMessage(NO_ACCESS);
         			return;
         	}
@@ -522,7 +548,7 @@ public class Commands implements PacketType {
         
 		if (playerCommand.startsWith("movehome")) {
 
-			if (!isManagment) {
+			if (!isManagement) {
 				c.sendMessage(NO_ACCESS);
 				return;
 			}
@@ -548,7 +574,7 @@ public class Commands implements PacketType {
         
         if (playerCommand.startsWith("teleto")) {
         	
-        	if (!isManagment) {
+        	if (!isManagement) {
         		c.sendMessage(NO_ACCESS);
         		return;
         	}
@@ -573,7 +599,7 @@ public class Commands implements PacketType {
         }
 
         if (playerCommand.startsWith("ban") && !playerCommand.startsWith("bank")) {
-        	if (!isManagment) {
+        	if (!isManagement) {
         		c.sendMessage(NO_ACCESS);
         		return;
         	}

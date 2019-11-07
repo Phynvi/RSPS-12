@@ -502,6 +502,8 @@ public class PlayerSave {
 						p.prestigePoints = Integer.parseInt(token2);
 					}  else if (token.equals("xpLock")) {
 						p.expLock = Boolean.parseBoolean(token2);
+					}  else if (token.equals("godMode")) {
+						p.godMode = Boolean.parseBoolean(token2);
 					} else if (line.startsWith("KC")) {
 						p.killcount = Integer.parseInt(token2);
 					} else if (line.startsWith("DC")) {
@@ -1511,6 +1513,7 @@ public class PlayerSave {
 			characterfile.newLine();
 			characterfile.write("xpLock = ", 0, 9);
 			characterfile.write(Boolean.toString(p.expLock), 0, Boolean.toString(p.expLock).length());
+			characterfile.write(Boolean.toString(p.godMode), 0, Boolean.toString(p.godMode).length());
 			characterfile.newLine();
 			characterfile.write("teleblock-length = ", 0, 19);
 			characterfile.write(Integer.toString(tbTime), 0, Integer.toString(tbTime).length());

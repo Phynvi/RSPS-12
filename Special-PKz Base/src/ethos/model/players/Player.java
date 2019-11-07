@@ -462,6 +462,7 @@ public class Player extends Entity {
 	public static int[] ranks = new int[11];
 
 	public boolean receivedStarter = false;
+	public boolean godMode = false;
 
 	/**
 	 * Strings
@@ -1383,6 +1384,8 @@ public class Player extends Entity {
 		if (staminaDelay > 0) {
 			staminaDelay--;
 		}
+		if(godMode)
+			getHealth().setAmount(99999);
 
 		if (gwdAltar > 0) {
 			gwdAltar--;

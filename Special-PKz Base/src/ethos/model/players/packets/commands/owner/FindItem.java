@@ -10,7 +10,7 @@ import ethos.model.players.packets.commands.Command;
  * @author Emiel
  *
  */
-public class Getid extends Command {
+public class FindItem extends Command {
 
 	@Override
 	public void execute(Player c, String input) {
