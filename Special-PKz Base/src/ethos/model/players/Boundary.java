@@ -254,7 +254,8 @@ public class Boundary {
 	 * Kalphite Queen
 	 */
 	public static final Boundary KALPHITE_QUEEN = new Boundary(3457, 9472, 3514, 9527);
-	public static final Boundary GALVEK_LAIR = new Boundary(1689, 9750, 1699, 9760);
+	public static final Boundary GALVEK_LAIR = new Boundary(1920, 4991, 1960, 5019);
+	public static final Boundary GALVEK_DOCK = new Boundary(1928, 5001, 1938, 5006);
 	
 	public static final Boundary CATACOMBS = new Boundary(1590, 9980, 1731, 10115);
 	

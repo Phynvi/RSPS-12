@@ -62,10 +62,10 @@ public class Galvek {
 	private Stopwatch poolTimer = Stopwatch.createStarted();
 	private Stopwatch siphonTimer = Stopwatch.createStarted();
 	private Stopwatch meteorTimer = Stopwatch.createStarted();
-	int minimumX = Boundary.GALVEK_LAIR.getMinimumX();
-	int maximumX = Boundary.GALVEK_LAIR.getMaximumX();
-	int minimumY = Boundary.GALVEK_LAIR.getMinimumY();
-	int maximumY = Boundary.GALVEK_LAIR.getMaximumY();
+	int minimumX = Boundary.GALVEK_DOCK.getMinimumX();
+	int maximumX = Boundary.GALVEK_DOCK.getMaximumX();
+	int minimumY = Boundary.GALVEK_DOCK.getMinimumY();
+	int maximumY = Boundary.GALVEK_DOCK.getMaximumY();
 
 	public void Start() {
 		for(int i = minimumX; i <= maximumX; i++) {
@@ -74,6 +74,7 @@ public class Galvek {
 		}
 	}
 		SetStage(Stage.ONE);
+		galvek = NPCHandler.getNpc(8095);
 		galvek.attackType = CombatType.MAGE;
 	}
 
@@ -123,7 +124,7 @@ public class Galvek {
 		coord = randomCoord[Misc.random(randomCoord.length - 1)];
 		x = coord[0];
 		y = coord[1];
-		//player.getPA().createPlayersStillGfx(135, x, y, player.heightLevel, 5);
+		player.getPA().createPlayersStillGfx(135, x, y, player.heightLevel, 5);
 		//meteorTimer.start();
 		meteorsActive++;
 		tileCoords.remove(randomCoord);
@@ -147,7 +148,7 @@ public class Galvek {
 	}
 
 	public void HandleGalvekAttack() {
-		player.sendMessage("the attack type is: " + galvek.attackType);
+		//player.sendMessage("the attack type is: " + galvek.attackType);
 		int random = Misc.random(10) + 1;
 		switch (galvek.attackType) {
 		case MAGE:
@@ -274,7 +275,7 @@ public class Galvek {
 						if (player.getPosition() != poolPositionOne && player.getPosition() != poolPositionTwo)
 							totalPlayersDamaged++;
 
-						if (Boundary.isIn(player, Boundary.GALVEK_LAIR)) {
+						if (Boundary.isIn(player, Boundary.GALVEK_DOCK)) {
 							if (totalPlayersDamaged <= 0) {
 								return;
 							}

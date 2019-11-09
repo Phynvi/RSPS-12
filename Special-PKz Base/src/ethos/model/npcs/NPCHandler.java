@@ -1517,7 +1517,7 @@ public class NPCHandler {
 				{	
 					for (Player player : PlayerHandler.players)
 						if (player != null)
-							if (Boundary.isIn(player, Boundary.GALVEK_LAIR))
+							if (Boundary.isIn(player, Boundary.GALVEK_DOCK))
 								if(!galvek.localPlayers.contains(player))
 									galvek.localPlayers.add(player);
 							else if (!Boundary.isIn(player, Boundary.GALVEK_LAIR))
@@ -5810,7 +5810,7 @@ public class NPCHandler {
 			// }
 			// break;
 			}
-			if(Boundary.isIn(c, Boundary.GALVEK_LAIR)) {
+			if(Boundary.isIn(c, Boundary.GALVEK_DOCK)) {
 				if(npcs[i].npcType == 8095) {
 					galvek.HandleGalvekAttack();
 				}
